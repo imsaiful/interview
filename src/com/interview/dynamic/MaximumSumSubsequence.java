@@ -20,20 +20,14 @@ public class MaximumSumSubsequence {
         for (int i = 0; i < T.length; i++) {
             T[i] = arr[i];
         }
-
+        int max = T[0];
         for(int i=1; i < T.length; i++){
             for(int j = 0; j < i; j++){
                 if(arr[j] < arr[i]){
                     T[i] = Math.max(T[i], T[j] + arr[i]);
                 }
             }
-        }
-
-        int max = T[0];
-        for (int i=1; i < T.length; i++){
-            if(T[i] > max){
-                max = T[i];
-            }
+            max=Math.max(T[i],max);
         }
         return max;
     }
